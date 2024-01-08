@@ -1,11 +1,10 @@
 {
   "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "ecmaVersion": "latest",
     "requireConfigFile": false,
     "babelOptions": {
-      "babelrc": false,
-      "configFile": false,
-      "presets": ["@babel/preset-env"]
+      "configFile": "./babel.config.json"
     }
   },
   "extends": [
@@ -15,12 +14,14 @@
   ],
   "rules": {
     "max-len": ["error", { "code": 120, "tabWidth": 2 }],
+    "complexity": ["off"],
     "no-magic-numbers": ["error", { "ignore": [0, 1] }],
     "indent": ["error", 2, {
       "ignoredNodes": ["TemplateLiteral", "SwitchCase"]
     }]
   },
-  "globals": {
-    "chrome": "readonly"
+  "env": {
+    "es2022": true,
+    "webextensions": true
   }
 }
